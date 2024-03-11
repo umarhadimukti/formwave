@@ -1,2 +1,2 @@
 # formwave
-Formwave is used for filling out the survey
+Aplikasi seperti google form yang dibangun menggunakan expressjs
