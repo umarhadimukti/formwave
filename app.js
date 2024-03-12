@@ -1,12 +1,13 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import mongoose from 'mongoose'
+import createError from 'http-errors'
+import express from 'express'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import logger from 'morgan'
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const apiRouter = require('./routes/api');
+import indexRouter from './routes/index.js'
+import usersRouter from './routes/users.js'
+import apiRouter from './routes/api.js'
 
 const app = express();
 
@@ -40,4 +41,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// connection db
+
+
+export default app

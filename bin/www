@@ -4,9 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('formwave:server');
-var http = require('http');
+import app from '../app.js';
+import Debug from 'debug';
+// import debug = require('debug')('formwave:server');
+import http from 'http';
+
+const debug = Debug('formwave:server');
 
 /**
  * Get port from environment and store in Express.

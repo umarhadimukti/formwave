@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 router.get('/users', (req, res) => {
@@ -9,4 +9,4 @@ router.post('/users', (req, res) => {
   res.json({name: req.body.name, email: req.body.email, password: req.body.password});
 });
 
-module.exports = router;
+export default router
