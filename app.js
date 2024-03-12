@@ -6,6 +6,7 @@ import logger from 'morgan'
 import { fileURLToPath } from 'url';
 import connectDB from './db/connect.js';
 import dotenv from 'dotenv';
+import {start} from './models/User.js';
 
 // routes
 import indexRouter from './routes/index.js'
@@ -24,6 +25,8 @@ const __dirname = path.dirname(__filename);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+start();
 
 // middleware
 app.use(logger('dev'));
