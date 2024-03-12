@@ -1,15 +1,20 @@
-import mongoose from 'mongoose'
 import createError from 'http-errors'
 import express from 'express'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
+import { fileURLToPath } from 'url';
+import connectDB from './db/connect.js'
 
 import indexRouter from './routes/index.js'
 import usersRouter from './routes/users.js'
 import apiRouter from './routes/api.js'
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+console.log(__filename);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +47,6 @@ app.use(function(err, req, res, next) {
 });
 
 // connection db
-
+connectDB('mongodb://localhost:27017/formwave');
 
 export default app
