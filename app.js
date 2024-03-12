@@ -4,22 +4,28 @@ import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import { fileURLToPath } from 'url';
-import connectDB from './db/connect.js'
+import connectDB from './db/connect.js';
+import dotenv from 'dotenv';
 
+// routes
 import indexRouter from './routes/index.js'
 import usersRouter from './routes/users.js'
 import apiRouter from './routes/api.js'
 
 const app = express();
 
+// env access
+const env = dotenv.config().parsed;
+
+// set dir and file name
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log(__filename);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,6 +53,6 @@ app.use(function(err, req, res, next) {
 });
 
 // connection db
-connectDB('mongodb://localhost:27017/formwave');
+connectDB(env.CONNECTION_STRING);
 
 export default app
