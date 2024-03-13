@@ -24,17 +24,19 @@ const UserSchema = new mongoose.Schema({
 // make user model
 const User = mongoose.model('User', UserSchema);
 
-const createUser = (name, email, password) => {
-  const create = new User({name, email, password});
-  create.save();
-};
+export default User;
 
-const updateUser = async (name, email, password) => {
-  const update = await User.findOneAndUpdate({name, email, password});
-  console.log(`name: ${update.name}\nemail: ${update.email}\npassword: ${password}`);
-}
+// const createUser = (name, email, password) => {
+//   const create = new User({name, email, password});
+//   create.save();
+// };
 
-export const start = async () => {
-  await createUser('Umar Hadi Mukti', 'umarhadimukti@gmail.com', '123456');
-  setTimeout(() => updateUser('Nabila Nishfi', 'nabilanishfi20@gmail.com', '1234'), 3000);
-}
+// const updateUser = async (name, email, password) => {
+//   const update = await User.findOneAndUpdate({name, email, password});
+//   console.log(`name: ${update.name}\nemail: ${update.email}\npassword: ${password}`);
+// }
+
+// export const start = async () => {
+//   await createUser('Umar Hadi Mukti', 'umarhadimukti@gmail.com', '123456');
+//   setTimeout(() => updateUser('Nabila Nishfi', 'nabilanishfi20@gmail.com', '1234'), 3000);
+// }
