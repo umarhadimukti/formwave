@@ -4,15 +4,17 @@ import mongoose from 'mongoose';
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'field name wajib diisi!'],
+    minLength: [3, 'nama harus minimal 3 kata.']
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'field email wajib diisi!'],
   },
   password: {
     type: String,
-    required: true,
+    required: [true, 'field password wajib diisi!'],
+    minLength: [6, 'password harus minimal 6 huruf.']
   },
   status: {
     type: String,
