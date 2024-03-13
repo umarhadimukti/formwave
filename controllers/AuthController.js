@@ -1,7 +1,7 @@
 import { User } from '../models/User.js';
 
-export class AuthController {
-  async register(req, res) {
+export default class AuthController {
+  static async register(req, res) {
     try {
       const user = await User.create(req.body);
       return res.status(201).json({message: 'Berhasil mendaftar!', data: user});
@@ -10,3 +10,5 @@ export class AuthController {
     }
   }
 }
+
+// export default new AuthController;
